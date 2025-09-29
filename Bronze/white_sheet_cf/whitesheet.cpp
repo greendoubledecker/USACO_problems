@@ -9,7 +9,6 @@ vector<int> overlap(int l1, int b1, int r1, int t1, int l2,int b2, int r2, int t
 	int bot = max(b1, b2);
 	int right = min(r1, r2);
 	int top = min(t1, t2);
-	//cout << "left:" << left << "bot:" << bot << "right:" << right << "top:" << top << endl;
 	vector<int> coords = {left, bot, right, top};
 	return coords;
 }
@@ -30,13 +29,10 @@ bool whitesheet(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, 
 	long long area1 = area(overlap1[0], overlap1[1], overlap1[2], overlap1[3]);
 	long long area2 = area(overlap2[0], overlap2[1], overlap2[2], overlap2[3]);
 	long long doub_neg_area = area(max(x1, black_overlap[0]), max(y1, black_overlap[1]), min(x2, black_overlap[2]), min(y2, black_overlap[3]));
-	//cout << "area1: " << area1 << " area2: " << area2 << " double negative: " << doub_neg_area << endl;
-	int width = x2 - x1;// 1LL * (x2 - x1);
-	int height = y2 - y1;//1LL * (y2 - y1);
+	int width = x2 - x1;
+	int height = y2 - y1;
 	long long area = (long long)width * height;
-	//cout << "whitesheetarea: " << area << endl;
 	long long totalOverlap = area1 + area2 - doub_neg_area;
-	//cout << "totalOverlap: " << totalOverlap << endl;
 	if(totalOverlap < area){
 		return true;
 	}else{

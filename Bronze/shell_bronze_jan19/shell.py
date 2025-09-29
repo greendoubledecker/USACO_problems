@@ -5,13 +5,13 @@ def getInput():
         lines.append(list(map(int, input().split())))
     return lines
 
-def shell(numshells):
+def shell():
     swaps = getInput()
     shells = [0, 0, 0]
     points = 0
     maxp = 0
     temp = 0
-    for i in range(numshells):
+    for i in range(3):
         shells[i] = 1
         for swap in swaps:
             temp = shells[swap[0] - 1]
@@ -25,4 +25,4 @@ def shell(numshells):
         shells = [0, 0, 0]
     print(maxp)
 
-shell(3)
+shell()
