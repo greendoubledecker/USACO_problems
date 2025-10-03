@@ -24,11 +24,11 @@ int main(){
 		}
 	}
 	vector<int> milkOuts(names.size(), startMilk);
-	vector<int> greatest;
+	vector<int> greatest = {};
+	vector<int> prevGreatest;
 	for(int i = 0; i < names.size(); ++i){
 		greatest.push_back(i);
 	}
-	vector<int> prevGreatest;
 	int switches = 0;
 	for(int i = 0; i < 100; ++i){
 		prevGreatest = greatest;
@@ -44,12 +44,10 @@ int main(){
 		for(int i = 0; i < milkOuts.size(); ++i){
 			if(milkOuts[i] == mostMilk){
 				greatest.push_back(i);
-				cout << "greatest" << i << endl;
 			}
 		}
 		if(greatest != prevGreatest){
 			switches++;
-			cout << "switches" << switches; 
 		}
 	}
 	cout << switches;
