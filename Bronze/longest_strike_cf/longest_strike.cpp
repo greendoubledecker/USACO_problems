@@ -52,7 +52,7 @@ int tc(){
 	int maxLength = 0;
 	int left, right;
 	for(vector<int> split : splitArrays){
-		if(split.size() + 1 > maxLength){
+		if(split.size() > maxLength){
 			maxLength = split.size();
 			left = split[0];
 			right = split[split.size()-1];
