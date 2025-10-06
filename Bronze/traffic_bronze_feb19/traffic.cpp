@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <climits>
 #include <vector>
-#include <string>// yes, i really needed that many includes
+#include <string>
 
 using namespace std;
 
@@ -24,7 +24,6 @@ pair<int, int> calcNext(int type, pair<int, int> range1, pair<int, int> range2){
 }
 
 pair<int, int> workUp(vector<int> types, vector<pair<int, int>> ranges){
-	//cout << "working up" << endl;
 	pair<int, int> range = {0, 1000000};
 	for(int i = types.size() - 1; i >= 0; --i){
 		if(types[i] == 0){
@@ -36,17 +35,14 @@ pair<int, int> workUp(vector<int> types, vector<pair<int, int>> ranges){
 		if(types[i] == 2){
 			range = calcNext(1, range, ranges[i]);
 		}
-		//cout << "range " << range.first << ", " << range.second << endl;
 	}
 	return range;
 }
 
 pair<int, int> workDown(vector<int> types, vector<pair<int, int>> ranges){
-	//cout << "working down" << endl;
 	pair<int, int> range = {0, 1000000};
 	for(int i = 0; i < types.size(); ++i){
 		range = calcNext(types[i], range, ranges[i]);
-		//cout << "range " << range.first << ", " << range.second << endl;
 	}
 	return range;
 }
