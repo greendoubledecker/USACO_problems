@@ -19,7 +19,7 @@ int daisies (){
 			for (int k = i; k <= j; ++k){
 				sum += flowers[k];
 			}
-			cout << "i " << i << " j " << j << " sum " << sum << endl;
+			//cout << "i " << i << " j " << j << " sum " << sum << endl;
 			if (sum % (j-i+1) != 0){
 				continue;
 			}else{
@@ -27,7 +27,7 @@ int daisies (){
 				for (int k = i; k <= j; ++k){
 					if (flowers[k] == avg){
 						++avgCount;
-						cout << avgCount << endl;
+						//cout << avgCount << endl;
 						break;
 					}
 				}
