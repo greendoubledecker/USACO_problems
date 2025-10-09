@@ -1,6 +1,8 @@
 #include <iostream>//slow. very slow.
 #include <vector>
 #include <algorithm>
+#include <set>
+#include <string>
 
 using namespace std;
 
@@ -9,15 +11,17 @@ int genome(vector<vector<char>> spotty, vector<vector<char>> plain){ //[base][co
 	for(int b1 = 0; b1 < spotty.size(); ++b1){
 		for(int b2 = b1+1; b2 < spotty.size(); ++b2){
 			for(int b3 = b2+1; b3 < spotty.size(); ++b3){
-				vector<int> bases = {b1, b2, b3};
-				vector<vector<char>> spottyGenes; //[char][gene]
+				set<string> spottyGenes; 
 				bool success = true;
 				for(int spottyCow = 0; spottyCow < spotty[0].size(); ++spottyCow){
-					vector<char> genes = {spotty[b1][spottyCow], spotty[b2][spottyCow], spotty[b3][spottyCow]};
-					spottyGenes.push_back(genes);
+					vector<char> charGenes = {spotty[b1][spottyCow], spotty[b2][spottyCow], spotty[b3][spottyCow]};
+					string genes(charGenes.begin(), charGenes.end());
+					spottyGenes.insert(genes);
 				}
-				for(int plainCow = 0; plainCow <  plain[0].size(); ++plainCow){
-					if(find(spottyGenes.begin(), spottyGenes.end(), vector<char>{plain[b1][plainCow], plain[b2][plainCow], plain[b3][plainCow]}) != spottyGenes.end()){
+				for(int plainCow = 0; plainCow < plain[0].size(); ++plainCow){
+					vector<char> charGenes = {plain[b1][plainCow], plain[b2][plainCow], plain[b3][plainCow]};
+					string genes(charGenes.begin(), charGenes.end());
+					if(spottyGenes.count(genes)){
 						success = false;
 						break;
 					}

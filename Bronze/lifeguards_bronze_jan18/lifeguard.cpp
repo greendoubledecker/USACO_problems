@@ -7,17 +7,17 @@ void fireLifeguard(vector<pair<int, int>> lifeguards){
 	int maxTime = 0;
 	for(int fire = 0; fire < lifeguards.size(); ++fire){
 		int time = 0;
-		cout << "fire: " << fire << endl << "Timesteps: ";
+		//cout << "fire: " << fire << endl << "Timesteps: ";
 		for(int step = 0; step < 1000; ++step){
 			for(int lifeguard = 0; lifeguard < lifeguards.size(); ++lifeguard){
 				if(lifeguard != fire && lifeguards[lifeguard].first <= step && step < lifeguards[lifeguard].second){
 					time++;
-					cout << step << " ";
+					//cout << step << " ";
 					break;
 				}
 			}
 		}
-		cout << endl;
+		//cout << endl;
 		if(time > maxTime){
 			maxTime = time;
 		}
@@ -35,5 +35,5 @@ int main(){
 		lifeguards.push_back(lifeguard); 
 	}
 	fireLifeguard(lifeguards);
-	return 1;
+	return 0;
 }
