@@ -1,6 +1,8 @@
 #include <iostream> // slow, will TLE
 #include <vector>
 #include <algorithm>
+#include <iterator>
+#include <set>
 
 using namespace std;
 
@@ -13,25 +15,26 @@ void tc(){
 		cin >> value;
 		permutation.push_back(value);
 	}
+	if(permutation.size() == 1){
+		cout << 1 << endl;
+		return;
+	}
 	int ans = 0;
 	for(int l = 0; l < num; ++l){
-		for(int r = l + 1; r <= num; ++r){
-			vector<int> subset(permutation.begin() + l, permutation.begin() + r);
-			sort(subset.begin(), subset.end());
-			bool success = true;
-			double middle = (r - l)/2.0;
-			for(int i = 0; i < middle; ++i){
-				//cout << "x" << endl;
-				if(subset[i] != i){
-					success = false;
-					break;
-				}
+		for(int r = l + 1; r < num; ++r){
+			set<int> subset;
+			for(int i = l; i <= r; ++i){
+				subset.insert(permutation[i]);
+			}
+			int middle = (r - l)/2;
+			auto it = subset.begin();
+			advance(it, middle);
+			cout << "l " << l << " r " << r << " middle " << middle << " element at middle " << *it << endl;
+			if(*it == middle){
+				++ans;
 			}
 			//cout << "Subset: ";
 			//cout << endl << "success = " << success << endl;
-			if(success){
-				ans++;
-			}
 		}
 	}
 	cout << ans << endl;
