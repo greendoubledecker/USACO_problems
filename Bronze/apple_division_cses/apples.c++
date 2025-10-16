@@ -11,9 +11,9 @@ long recurse(vector<long> apples, size_t level, vector<long> included, long tota
 		long incWeight = 0;
 		for (size_t i = 0; i < included.size(); ++i){
 			incWeight += included[i];
-			cout << "Included: " << included[i] << endl;
+			//cout << "Included: " << included[i] << endl;
 		}
-		cout << "Excluded: " << totalWeight - incWeight << " Included: " << incWeight << " Difference: " << abs(totalWeight - 2 * incWeight) << endl << endl;
+		//cout << "Excluded: " << totalWeight - incWeight << " Included: " << incWeight << " Difference: " << abs(totalWeight - 2 * incWeight) << endl << endl;
 		return abs(totalWeight - 2 * incWeight); // (totalWeight - incWeight) - incWeight
 	}
 	vector<long> newInc = included;
@@ -36,7 +36,7 @@ void apples(){
 	for (size_t i = 0; i < apples.size(); ++i){
 		totalWeight += apples[i];
 	}
-	cout << "t" << totalWeight << endl;
+	//cout << "t" << totalWeight << endl;
 	cout << recurse(apples, zero, included, totalWeight) << endl; 
 }
 
