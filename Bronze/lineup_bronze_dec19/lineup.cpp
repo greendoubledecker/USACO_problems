@@ -29,12 +29,6 @@ pair<int, int> parseConstraint(string constraint){
 void recurse(vector<pair<int, int>> constraints, int level){
 	if(level == cows.size()){
 		if(!found){
-			/*
-			cout << "order: " << endl;
-			for(int cow : currentOrder){
-				cout << cows[cow] << endl;
-			}
-			*/
 			int curr, prev, next;
 			found = true;
 			for(int i = 0; i < cows.size(); ++i){
@@ -52,9 +46,7 @@ void recurse(vector<pair<int, int>> constraints, int level){
 				bool works = true;
 				for(pair<int, int> constraint : constraints){
 					if(constraint.first == curr){
-						//cout << "first: " << constraint.first << "second: " << constraint.second << "prev: " << prev << "next: " << next << endl;
 						if(constraint.second != prev && constraint.second != next){
-							//cout << "broken constraint: " << constraint.first << ", " << constraint.second << endl;
 							works = false;
 							break;
 						}
@@ -66,13 +58,11 @@ void recurse(vector<pair<int, int>> constraints, int level){
 				}
 			}
 			if(found){
-				//cout << "works" << endl;
 				ans = currentOrder;
 			}
 		}
 	}else{
 		for(int i = 0; i < cows.size(); ++i){
-			//cout << "next: " << cows[i] << endl;
 			if(find(currentOrder.begin(), currentOrder.end(), i) == currentOrder.end()){
 				currentOrder.push_back(i);
 				recurse(constraints, level + 1);
@@ -87,7 +77,6 @@ int main(){
 	int num;
 	cin >> num;
 	for(int i = 0; i < num; ++i){
-		//cout << "looping" << endl;
 		string cow1, must, be, milked, beside, cow2;
 		cin >> cow1 >> must >> be >> milked >> beside >> cow2;
 		constraints.push_back(pair<int, int>{distance(cows.begin(), find(cows.begin(), cows.end(), cow1)), distance(cows.begin(), find(cows.begin(), cows.end(), cow2))});
