@@ -7,23 +7,28 @@ using namespace std;
 void tc(){
 	int num;
 	cin >> num;
-	vector<int> permutation;
-	for(int i = 0; i < num; ++i){
+	vector<int> locations(num);//, permutation;
+	for(int i = 1; i <= num; ++i){
 		int value;
 		cin >> value;
-		permutation.push_back(value);
+		locations[value] = i;
+		//permutation.push_back(value);
 	}
-	int ans = 0;
-	for(int l = 0; l < num; ++l){
-		vector<int> subset;
-		for(int r = l; r < num; ++r){
-			auto insertPos = lower_bound(subset.begin(), subset.end(), permutation[r]);
-			subset.insert(insertPos, permutation[r]);
-			int middle = (r - l)/2;
-			if(subset[middle] == middle){
-				++ans;
-			}
+	for(int i = 0; i < num; ++i){
+		//cout << locations[i] << ",";
+	}
+	//cout << endl;
+	long long ans = 1;
+	int l = locations[0], r = locations[0];
+	for(int size = 2; size <= num; ++size){
+		int middle = (size - 1)/2;
+		l = min({l, locations[middle], num - size + 1});
+		r = max({r, locations[middle], size});
+		//cout << "size=" << size << ",l=" << l << ",r=" << r << ",middle=" << middle << endl;
+		if(r - l < size){
+			ans += (size - (r - l));
 		}
+		//cout << "ans:" << ans << endl;
 	}
 	cout << ans << endl;
 }
@@ -36,3 +41,4 @@ int main(){
 	}
 	return 0;
 }
+
