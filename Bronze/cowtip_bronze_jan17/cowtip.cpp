@@ -1,8 +1,3 @@
-/*            ___    ___  __
- * |\    /|  /   \  /   \ ||
- * | \  / |  |   |  |   | ||
- * |  \/  |  \___/  \___/ O
-*/
 
 #include <iostream>
 #include <vector>
@@ -26,15 +21,11 @@ int main(){
 	}
 	int y = size - 1, x = size - 1, count = 0;
 	while(x >= 0 && y >= 0){
-		//cout << "x" << x << "y" << y << endl;
 		if(grid[y][x] == true){
-			//cout << "in if" << endl;
 			++count;
 			for(int i = 0; i <= y; ++i){
 				for(int j = 0; j <= x; ++j){
-					//cout << "before: " << grid[i][j] << endl;
 					grid[i][j] = !grid[i][j];
-					//cout << "after: " << grid[i][j] << endl;
 				}
 			}
 		}
