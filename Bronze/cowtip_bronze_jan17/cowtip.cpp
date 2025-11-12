@@ -5,8 +5,8 @@
 using namespace std;
 
 int main(){
-	freopen("cowtip.in", "r", stdin);
-	freopen("cowtip.out", "write", stdout);
+	//freopen("cowtip.in", "r", stdin);
+	//freopen("cowtip.out", "write", stdout);
 	vector<vector<bool>> grid;
 	int size;
 	cin >> size;
