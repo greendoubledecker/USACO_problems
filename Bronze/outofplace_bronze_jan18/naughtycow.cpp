@@ -5,8 +5,8 @@
 using namespace std;
 
 int main(){
-	freopen("outofplace.in", "r", stdin);
-	freopen("outofplace.out", "w", stdout);
+	//freopen("outofplace.in", "r", stdin);
+	//freopen("outofplace.out", "w", stdout);
 	vector<int> current, correct;
 	int num;
 	cin >> num;
