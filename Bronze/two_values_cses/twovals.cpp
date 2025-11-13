@@ -22,7 +22,7 @@ int main(){
 		}
 		if(vec[remaining] != vector<int>{}){
 			if(pair.first == remaining){
-				if(pair.second.size() >= 2){
+				if(pair.second.size() > 1){
 					cout << pair.second[0] + 1 << " " << pair.second[1] + 1 << endl;
 					return 0;
 				}
