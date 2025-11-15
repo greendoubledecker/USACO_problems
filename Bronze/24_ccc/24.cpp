@@ -20,6 +20,13 @@ int mul(int a, int b, vector<int> nums);
 int div(int a, int b, vector<int> nums);
 
 int recurse(vector<int> nums){
+	/*
+	cout << "recursing on vector: ";
+	for(int num : nums){
+		cout << num << " ";
+	}
+	cout << endl;
+	*/
 	if(nums.size() == 1){
 		if(nums[0] <= 24){
 			return nums[0];
