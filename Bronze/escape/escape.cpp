@@ -25,23 +25,10 @@ void recurse(vector<bool> included, int level, int numInc){ // level start at 0,
 				sum = addVec(sum, nums[i]);
 			}
 		}
-		/*
-		cout << "sum is" << endl;
-		for(int n : sum){
-			cout << n << ", ";
-		}
-		cout << endl;
-		*/
 		for(int n : sum){
 			if(n > 9) return;
 		}
 		maxCows = numInc;
-		/*
-		cout << "included is" << endl;
-		for(bool i : included){
-			cout << i << endl;
-		}
-		*/
 		return;
 	}else{
 		vector<bool> yes = included, no = included;
@@ -60,7 +47,6 @@ int main(){
 		cin >> weight;
 		weight.insert(0, digs - weight.size(), '0');
 		for(int i = 0; i < weight.size(); ++i){
-			//cout << "huh" << endl;
 			backwards[digs - i - 1] = weight[i] - '0';
 		}
 		nums.push_back(backwards);
