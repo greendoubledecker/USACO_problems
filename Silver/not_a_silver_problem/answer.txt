@@ -1,0 +1,3 @@
+To find the possible hiding spots, run a DFS/BFS on the grid to find the loops/exits, moving on to the next unvisited barn. Then, for each loop, find the top-left and add that to the list of possible hiding spots.
+This takes O(N^2).
+Then, work backwards from each hiding spot to the edge to get the starting places. This also takes O(N^2).

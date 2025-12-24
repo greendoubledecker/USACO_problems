@@ -1,0 +1,32 @@
+Hide And Seek
+
+Bessie and Elsie are playing hide-and-seek! Elsie is hiding in one of the N^2 barns (1 <= N <= 20 000) in the farm, which are arranged in a square grid. Each barn has an arrow pointing parallel to the grid. To determine where to hide, Elsie enters at an arbitrary barn, and follows the arrows until she either
+1. visits a barn she has visited before, then stops at the top-left most corner of the loop(on the left corner of the top row of the loop).
+or
+2. stops at a barn where the arrow points out of the farm.
+For each position Elsie could be hiding in, please help Bessie determine where she can enter from so that she can follow the arrows to find Elsie.
+
+INPUT FORMAT(input arrives from terminal/stdin)
+The first line contains N (1 <= N <= 20 000).
+The next N lines each contain N characters, each either U D L or R, representing the direction the arrow at that barn points.
+
+OUPUT FORMAT(print output to the terminal/stdout)
+The first line should contain the number of possible hiding places for Elsie.
+All the other lines should contain the x and y coordinates for each hiding place, then a space separated list of all the possible places Bessie can enter to follow the arrows and get to Elsie(these are numbered clockwise, starting from 0 in the top left).
+
+SAMPLE INPUT
+3
+DRD
+LUL
+RRU
+
+SAMPLE OUTPUT
+2
+0 1 0 7
+1 0 1 2 3 4 5 6
+
+There are 2 hiding places, one at (0, 1) on the left edge where an arrow points out of the farm, and one at (1, 0) at the top-left of a loop:
+RD
+UL
+
+For example, if Bessie enters at 4, she is in the bottom right and sees a U. She goes up, then enters the loop.
