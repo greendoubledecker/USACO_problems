@@ -16,10 +16,10 @@ void tc(){
 	ll missing = FA - A;
 	//ll ans = max(missing, roundedOps * CB - B);
 	if(CA >= CB){
-		ll ans = missing;
+		ll ans = missing; //add them to a until it is 1 less than needed, then add c_b - b
 		cout << max(ans, 0ll) << endl;
 	}else{
-		ll roundedOps = missing / CA;
+		ll roundedOps = missing / CA; //similar here
 		if(missing % CA != 0){
 			++roundedOps;
 		}
