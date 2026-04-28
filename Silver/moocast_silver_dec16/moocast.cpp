@@ -16,7 +16,7 @@ struct Cow{
 vector<Cow*> cows;
 vector<bool> visited;
 
-int recurse(int start){ //the index
+int recurse(int start){ //the indexA
 	int canTransmit = 1;
 	visited[start] = true;
 	for(int cow : cows[start]->neighbors){
