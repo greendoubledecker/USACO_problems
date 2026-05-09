@@ -13,23 +13,18 @@
 using namespace std;
 using ll = long long;
 vector<vector<bool>> vis; //Add a wall on outside
-vector<pair<ll,ll>> dfs(ll x, ll y){
-	if(vis[x][y]) return {};
+void dfs(ll x, ll y, vector<pair<ll,ll>> &component){
+	if(vis[x][y]) return;
 	vis[x][y] = true;
-	vector<pair<ll, ll>> ans = {{x - 1, y - 1}};
-	vector<pair<ll, ll>> left = dfs(x - 1, y);
-	ans.insert(ans.end(), left.begin(), left.end());
-	vector<pair<ll, ll>> right = dfs(x + 1, y);
-	ans.insert(ans.end(), right.begin(), right.end());
-	vector<pair<ll, ll>> down = dfs(x, y - 1);
-	ans.insert(ans.end(), down.begin(), down.end());
-	vector<pair<ll, ll>> up = dfs(x, y + 1);
-	ans.insert(ans.end(), up.begin(), up.end());
-	return ans;
+	component.push_back({x-1, y-1});
+	dfs(x - 1, y, component);
+	dfs(x + 1, y, component);
+	dfs(x, y - 1, component);
+	dfs(x, y + 1, component);
 }
 int main(){
-	//freopen("perimeter.in", "r", stdin);
-	//freopen("perimeter.out", "w", stdout);
+	freopen("perimeter.in", "r", stdin);
+	freopen("perimeter.out", "w", stdout);
 	ll n;
 	cin >> n;
 	vis.assign(n + 2, vector<bool>(n + 2));
@@ -52,7 +47,8 @@ int main(){
 	for(ll i = 1; i < n + 1; ++i){
 		for(ll j = 1; j < n + 1; ++j){
 			if(!vis[i][j]){
-				vector<pair<ll, ll>> ans = dfs(i, j);
+				vector<pair<ll, ll>> ans = {};
+				dfs(i, j, ans);
 				//cout << "dfs" << endl;
 				ll area = ans.size();
 				ll perimeter = 0;
