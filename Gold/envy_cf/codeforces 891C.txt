@@ -1,0 +1,15 @@
+codeforces 891C
+
+> Kruskal algorithm:
+--> sort edges by weight
+--> for every edge
+----> use DSU union to check if edge forms a cycle and also add it to MST
+----> repeat until a tree is formed
+
+> for every query
+--> store all edges with every possible weight
+--> for each possible weight w
+----> if the query edges with weight w form a cycle
+------> print no and exit
+----> run Kruskal at weight w
+> print yes
