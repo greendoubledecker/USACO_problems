@@ -1,0 +1,7 @@
+codeforces earthquakes
+-> do all earthquakes first
+-> do DSU on current state
+-> for each earthquake
+---> undo earthquake
+---> do DSU
+---> store answer
