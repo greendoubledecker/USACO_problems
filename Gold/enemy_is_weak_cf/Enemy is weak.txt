@@ -1,0 +1,18 @@
+Enemy is weak
+
+Sort input array
+Store every query as {L, R, K, ind} where K is maximum power and also {L, R, M, ind} where M is minimum power
+Sort all max_power queries by K
+For every query
+  For every value less than K
+    update BIT [original index] by 1
+  Store query(L, R) as {ind, value}
+
+Sort all min_power queries by M
+For every query
+  For every value greater than M
+    update BIT [original index] by 1
+  Store query(L, R) as {ind, value}
+
+Output answers in order of ind
+
